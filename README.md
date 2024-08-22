@@ -13,7 +13,7 @@ What it has now:
 
 What I plan to add as I learn more about Godot:
   Enemies.
-  Functional hitting animation.
+  Functional hit animation.
   Character HP.
   More scenes, with proper level designs instead of the one I throw together based on a Youtube tutorial for testing purposes.
   User UI.
