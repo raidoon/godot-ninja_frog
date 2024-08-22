@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://tq6k262qdwhh"]
+[gd_scene load_steps=6 format=3 uid="uid://tq6k262qdwhh"]
 
 [ext_resource type="Script" path="res://scripts/main_menu_buttons.gd" id="1_6cibb"]
 [ext_resource type="StyleBox" uid="uid://bl23oybyyrf6a" path="res://theme/selected_button.tres" id="1_wc8rn"]
 [ext_resource type="StyleBox" uid="uid://bl5lbqxfh5t3m" path="res://theme/non_selected_button.tres" id="2_ft88h"]
 [ext_resource type="PackedScene" uid="uid://daplqh8flmap5" path="res://LEVELS/level_1.tscn" id="2_hxdgq"]
+[ext_resource type="PackedScene" uid="uid://dcaqpmvogjoc4" path="res://scenes/options_menu.tscn" id="3_sf0p5"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -38,6 +39,7 @@ grow_vertical = 2
 theme_override_constants/separation = 24
 script = ExtResource("1_6cibb")
 sceneToLoad = ExtResource("2_hxdgq")
+optionsMenu = ExtResource("3_sf0p5")
 
 [node name="play_button" type="Button" parent="MainMenuButtons"]
 layout_mode = 2
@@ -88,3 +90,5 @@ theme_override_font_sizes/normal_font_size = 100
 text = "Ninja Frog"
 
 [connection signal="pressed" from="MainMenuButtons/play_button" to="MainMenuButtons" method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenuButtons/options_button" to="MainMenuButtons" method="_on_options_button_pressed"]
+[connection signal="pressed" from="MainMenuButtons/quit_button" to="MainMenuButtons" method="_on_quit_button_pressed"]
