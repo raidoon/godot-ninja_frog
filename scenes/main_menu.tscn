@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=3 uid="uid://tq6k262qdwhh"]
+
+[ext_resource type="Script" path="res://scripts/main_menu_buttons.gd" id="1_6cibb"]
+[ext_resource type="StyleBox" uid="uid://bl23oybyyrf6a" path="res://theme/selected_button.tres" id="1_wc8rn"]
+[ext_resource type="StyleBox" uid="uid://bl5lbqxfh5t3m" path="res://theme/non_selected_button.tres" id="2_ft88h"]
+[ext_resource type="PackedScene" uid="uid://daplqh8flmap5" path="res://LEVELS/level_1.tscn" id="2_hxdgq"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.201036, 0.293746, 0.36194, 1)
+
+[node name="MainMenuButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -148.0
+offset_right = 158.0
+offset_bottom = 244.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+script = ExtResource("1_6cibb")
+sceneToLoad = ExtResource("2_hxdgq")
+
+[node name="play_button" type="Button" parent="MainMenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../quit_button")
+focus_neighbor_bottom = NodePath("../options_button")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/focus = ExtResource("1_wc8rn")
+theme_override_styles/hover = ExtResource("1_wc8rn")
+theme_override_styles/pressed = ExtResource("1_wc8rn")
+theme_override_styles/normal = ExtResource("2_ft88h")
+text = "Play"
+
+[node name="options_button" type="Button" parent="MainMenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../play_button")
+focus_neighbor_bottom = NodePath("../quit_button")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/focus = ExtResource("1_wc8rn")
+theme_override_styles/hover = ExtResource("1_wc8rn")
+theme_override_styles/pressed = ExtResource("1_wc8rn")
+theme_override_styles/normal = ExtResource("2_ft88h")
+text = "Options"
+
+[node name="quit_button" type="Button" parent="MainMenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../options_button")
+focus_neighbor_bottom = NodePath("../play_button")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/focus = ExtResource("1_wc8rn")
+theme_override_styles/hover = ExtResource("1_wc8rn")
+theme_override_styles/pressed = ExtResource("1_wc8rn")
+theme_override_styles/normal = ExtResource("2_ft88h")
+text = "Quit"
+
+[node name="game_name" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -252.0
+offset_right = 252.0
+offset_bottom = 152.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 100
+text = "Ninja Frog"
+
+[connection signal="pressed" from="MainMenuButtons/play_button" to="MainMenuButtons" method="_on_play_button_pressed"]
