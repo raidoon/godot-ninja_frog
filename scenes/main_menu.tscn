@@ -1,94 +1,132 @@
-[gd_scene load_steps=6 format=3 uid="uid://tq6k262qdwhh"]
+[gd_scene load_steps=8 format=3 uid="uid://tq6k262qdwhh"]
 
-[ext_resource type="Script" path="res://scripts/main_menu_buttons.gd" id="1_6cibb"]
-[ext_resource type="StyleBox" uid="uid://bl23oybyyrf6a" path="res://theme/selected_button.tres" id="1_wc8rn"]
-[ext_resource type="StyleBox" uid="uid://bl5lbqxfh5t3m" path="res://theme/non_selected_button.tres" id="2_ft88h"]
+[ext_resource type="Texture2D" uid="uid://s5rndoki10bj" path="res://textures/Green.png" id="1_15xw4"]
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_aop3d"]
 [ext_resource type="PackedScene" uid="uid://daplqh8flmap5" path="res://LEVELS/level_1.tscn" id="2_hxdgq"]
-[ext_resource type="PackedScene" uid="uid://dcaqpmvogjoc4" path="res://scenes/options_menu.tscn" id="3_sf0p5"]
+[ext_resource type="PackedScene" uid="uid://dcaqpmvogjoc4" path="res://scenes/optionsMenu/options_menu.tscn" id="3_sf0p5"]
 
-[node name="MainMenu" type="Control"]
+[sub_resource type="GDScript" id="GDScript_5v0f3"]
+script/source = "extends VBoxContainer
+
+@export var sceneToLoad : PackedScene
+@export var optionsMenu : PackedScene
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_play_button_pressed():
+	get_tree().change_scene_to_packed(sceneToLoad)
+
+
+func _on_options_button_pressed():
+	var optionsMenuInstance = optionsMenu.instantiate()
+	get_tree().root.get_node(\"MainMenu\").add_child(optionsMenuInstance)
+
+
+func _on_quit_button_pressed():
+	get_tree().quit()
+"
+
+[sub_resource type="SystemFont" id="SystemFont_8qy5u"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="SystemFont" id="SystemFont_jigwn"]
+font_names = PackedStringArray("Impact")
+
+[node name="main_menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_aop3d")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="background" type="TextureRect" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.201036, 0.293746, 0.36194, 1)
+texture = ExtResource("1_15xw4")
+stretch_mode = 1
 
-[node name="MainMenuButtons" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -156.0
-offset_top = -148.0
-offset_right = 158.0
-offset_bottom = 244.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 24
-script = ExtResource("1_6cibb")
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="menu_title" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+script = SubResource("GDScript_5v0f3")
 sceneToLoad = ExtResource("2_hxdgq")
 optionsMenu = ExtResource("3_sf0p5")
 
-[node name="play_button" type="Button" parent="MainMenuButtons"]
+[node name="title_separator" type="Control" parent="MarginContainer/menu_title"]
 layout_mode = 2
-size_flags_vertical = 3
-focus_neighbor_top = NodePath("../quit_button")
-focus_neighbor_bottom = NodePath("../options_button")
-theme_override_font_sizes/font_size = 42
-theme_override_styles/focus = ExtResource("1_wc8rn")
-theme_override_styles/hover = ExtResource("1_wc8rn")
-theme_override_styles/pressed = ExtResource("1_wc8rn")
-theme_override_styles/normal = ExtResource("2_ft88h")
-text = "Play"
 
-[node name="options_button" type="Button" parent="MainMenuButtons"]
+[node name="game_name" type="Label" parent="MarginContainer/menu_title"]
+texture_filter = 1
 layout_mode = 2
-size_flags_vertical = 3
-focus_neighbor_top = NodePath("../play_button")
-focus_neighbor_bottom = NodePath("../quit_button")
-theme_override_font_sizes/font_size = 42
-theme_override_styles/focus = ExtResource("1_wc8rn")
-theme_override_styles/hover = ExtResource("1_wc8rn")
-theme_override_styles/pressed = ExtResource("1_wc8rn")
-theme_override_styles/normal = ExtResource("2_ft88h")
-text = "Options"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 24
+theme_override_fonts/font = SubResource("SystemFont_8qy5u")
+theme_override_font_sizes/font_size = 64
+text = "NINJA FROG"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
 
-[node name="quit_button" type="Button" parent="MainMenuButtons"]
+[node name="buttons_containerH" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-focus_neighbor_top = NodePath("../options_button")
-focus_neighbor_bottom = NodePath("../play_button")
-theme_override_font_sizes/font_size = 42
-theme_override_styles/focus = ExtResource("1_wc8rn")
-theme_override_styles/hover = ExtResource("1_wc8rn")
-theme_override_styles/pressed = ExtResource("1_wc8rn")
-theme_override_styles/normal = ExtResource("2_ft88h")
-text = "Quit"
+alignment = 1
 
-[node name="game_name" type="RichTextLabel" parent="."]
+[node name="buttons_containerV" type="VBoxContainer" parent="MarginContainer/buttons_containerH"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="button_separator" type="Control" parent="MarginContainer/buttons_containerH/buttons_containerV"]
+layout_mode = 2
+
+[node name="play_bt" type="Button" parent="MarginContainer/buttons_containerH/buttons_containerV"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_jigwn")
+theme_override_font_sizes/font_size = 50
+text = "PLAY"
+
+[node name="options_bt" type="Button" parent="MarginContainer/buttons_containerH/buttons_containerV"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_jigwn")
+theme_override_font_sizes/font_size = 50
+text = "OPTIONS"
+
+[node name="quit_bt" type="Button" parent="MarginContainer/buttons_containerH/buttons_containerV"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_jigwn")
+theme_override_font_sizes/font_size = 50
+text = "QUIT"
+
+[node name="options_menu" parent="." instance=ExtResource("3_sf0p5")]
+visible = false
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -252.0
-offset_right = 252.0
-offset_bottom = 152.0
-grow_horizontal = 2
-theme_override_font_sizes/normal_font_size = 100
-text = "Ninja Frog"
-
-[connection signal="pressed" from="MainMenuButtons/play_button" to="MainMenuButtons" method="_on_play_button_pressed"]
-[connection signal="pressed" from="MainMenuButtons/options_button" to="MainMenuButtons" method="_on_options_button_pressed"]
-[connection signal="pressed" from="MainMenuButtons/quit_button" to="MainMenuButtons" method="_on_quit_button_pressed"]
