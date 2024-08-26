@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_aop3d"]
 [ext_resource type="PackedScene" uid="uid://daplqh8flmap5" path="res://LEVELS/level_1.tscn" id="2_hxdgq"]
 [ext_resource type="PackedScene" uid="uid://dcaqpmvogjoc4" path="res://scenes/optionsMenu/options_menu.tscn" id="3_sf0p5"]
-[ext_resource type="AudioStream" uid="uid://cp0mfmnefk8wf" path="res://audio/music/background.mp3" id="5_rlfjc"]
+[ext_resource type="AudioStream" uid="uid://dk3t03du45cqs" path="res://audio/music/bgmusic.mp3" id="5_4tv8o"]
 
 [sub_resource type="GDScript" id="GDScript_5v0f3"]
 script/source = "extends VBoxContainer
@@ -133,6 +133,5 @@ visible = false
 layout_mode = 1
 
 [node name="bg_music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_rlfjc")
-volume_db = -14.0
+stream = ExtResource("5_4tv8o")
 autoplay = true
