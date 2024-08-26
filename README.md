@@ -5,6 +5,8 @@ This is the first game ever that I tried to make in Godot!
 Engine version I worked with: 4.3 
 
 What it has now: 
+  Main menu with 3 functional buttons.
+  Basic options menu with tabs: controls(added in changeable keybinds for player), sound (empty for now), graphics(empty for now) accessibility(empty for now).
   1 very basic scene with 1 player character (Ninja Frog).
   Basic cahracter movements with key bindings (keyboard and joystick support).
   Direction changing.
