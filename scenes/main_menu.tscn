@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://tq6k262qdwhh"]
+[gd_scene load_steps=9 format=3 uid="uid://tq6k262qdwhh"]
 
 [ext_resource type="Texture2D" uid="uid://s5rndoki10bj" path="res://textures/Green.png" id="1_15xw4"]
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_aop3d"]
 [ext_resource type="PackedScene" uid="uid://daplqh8flmap5" path="res://LEVELS/level_1.tscn" id="2_hxdgq"]
 [ext_resource type="PackedScene" uid="uid://dcaqpmvogjoc4" path="res://scenes/optionsMenu/options_menu.tscn" id="3_sf0p5"]
+[ext_resource type="AudioStream" uid="uid://cp0mfmnefk8wf" path="res://audio/music/background.mp3" id="5_rlfjc"]
 
 [sub_resource type="GDScript" id="GDScript_5v0f3"]
 script/source = "extends VBoxContainer
@@ -130,3 +131,8 @@ text = "QUIT"
 [node name="options_menu" parent="." instance=ExtResource("3_sf0p5")]
 visible = false
 layout_mode = 1
+
+[node name="bg_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rlfjc")
+volume_db = -14.0
+autoplay = true
