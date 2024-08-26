@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 			anim.animation= "idle"
 
 	# Handle horizontal movement
-	var direction := Input.get_axis("left", "right")
+	var direction := Input.get_axis("move_left", "move_right")
 	if direction != 0:
 		velocity.x = direction * SPEED
 	else:

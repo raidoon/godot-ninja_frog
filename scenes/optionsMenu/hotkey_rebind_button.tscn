@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/optionsMenu/hotkey_rebind_button.gd" id="1_yark4"]
 
-[node name="Hotkey_Rebind_Button" type="Control"]
+[node name="Hotkey_Rebind_Button" type="Control" groups=["hotkey_button"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,3 +39,5 @@ custom_minimum_size = Vector2(164, 0)
 layout_mode = 2
 toggle_mode = true
 text = "ACTION_KEY"
+
+[connection signal="toggled" from="HotKeyContainer/hotkey_bt" to="." method="_on_hotkey_bt_toggled"]

@@ -107,21 +107,21 @@ alignment = 1
 layout_mode = 2
 
 [node name="play_bt" type="Button" parent="MarginContainer/buttons_containerH/buttons_containerV"]
-custom_minimum_size = Vector2(120, 32)
+custom_minimum_size = Vector2(130, 40)
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_jigwn")
 theme_override_font_sizes/font_size = 50
 text = "PLAY"
 
 [node name="options_bt" type="Button" parent="MarginContainer/buttons_containerH/buttons_containerV"]
-custom_minimum_size = Vector2(120, 32)
+custom_minimum_size = Vector2(220, 60)
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_jigwn")
 theme_override_font_sizes/font_size = 50
 text = "OPTIONS"
 
 [node name="quit_bt" type="Button" parent="MarginContainer/buttons_containerH/buttons_containerV"]
-custom_minimum_size = Vector2(120, 32)
+custom_minimum_size = Vector2(130, 40)
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_jigwn")
 theme_override_font_sizes/font_size = 50
