@@ -29,7 +29,7 @@ func set_text_for_key() -> void:
 	
 	button.text = "%s" % action_keycode
 	
-# --------- the actual key binding starts here ----------
+# -------------- the actual key binding starts here ----------
 
 # --------- this is the function for toggling the buttons
 func _on_hotkey_bt_toggled(button_pressed):

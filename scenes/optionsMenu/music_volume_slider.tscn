@@ -1,21 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4eeoam8g1nge"]
+[gd_scene load_steps=2 format=3 uid="uid://cln4ro8cxy4hp"]
 
-[ext_resource type="Script" path="res://scenes/optionsMenu/sound_control.gd" id="1_sgyrd"]
-
-[sub_resource type="SystemFont" id="SystemFont_36wr3"]
+[sub_resource type="SystemFont" id="SystemFont_qerbf"]
 font_names = PackedStringArray("Impact")
 
-[node name="sound_control_button" type="Control"]
+[node name="music_volume_slider" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_sgyrd")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
 offset_right = 844.0
 offset_bottom = 64.0
 alignment = 1
@@ -23,9 +19,9 @@ alignment = 1
 [node name="Label" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(400, 30)
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_36wr3")
+theme_override_fonts/font = SubResource("SystemFont_qerbf")
 theme_override_font_sizes/font_size = 32
-text = "Main Volume"
+text = "Music"
 vertical_alignment = 1
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]

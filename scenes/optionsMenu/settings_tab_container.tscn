@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://doyhjiyaxnarl"]
+[gd_scene load_steps=9 format=3 uid="uid://doyhjiyaxnarl"]
 
 [ext_resource type="PackedScene" uid="uid://c1kux06q4gdwd" path="res://scenes/optionsMenu/window_mode_button.tscn" id="1_5seqs"]
 [ext_resource type="PackedScene" uid="uid://cipah22qipao0" path="res://scenes/optionsMenu/hotkey_rebind_button.tscn" id="1_7bqt5"]
+[ext_resource type="PackedScene" uid="uid://c4eeoam8g1nge" path="res://scenes/optionsMenu/sound_button.tscn" id="1_au3h1"]
+[ext_resource type="PackedScene" uid="uid://cln4ro8cxy4hp" path="res://scenes/optionsMenu/music_volume_slider.tscn" id="2_ai5tu"]
 [ext_resource type="PackedScene" uid="uid://cyp78tke2krno" path="res://scenes/optionsMenu/resolution_mode_button.tscn" id="2_s3upw"]
+[ext_resource type="PackedScene" uid="uid://cafkreukhd66" path="res://scenes/optionsMenu/sfx_slider.tscn" id="3_kjx5v"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k3hpw"]
 
@@ -32,6 +35,7 @@ current_tab = 0
 
 [node name="Sound" type="TabBar" parent="TabContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 metadata/_tab_index = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Sound"]
@@ -53,9 +57,19 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 128
 
+[node name="sound_control_button" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_au3h1")]
+layout_mode = 2
+
+[node name="music_volume_slider" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_ai5tu")]
+layout_mode = 2
+
+[node name="sfx_slider" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_kjx5v")]
+layout_mode = 2
+
 [node name="Graphics" type="TabBar" parent="TabContainer"]
 visible = false
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 metadata/_tab_index = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Graphics"]
@@ -86,6 +100,7 @@ layout_mode = 2
 [node name="Controls" type="TabBar" parent="TabContainer"]
 visible = false
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 metadata/_tab_index = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controls"]
@@ -131,6 +146,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_j3g47")
 [node name="Accessibility" type="TabBar" parent="TabContainer"]
 visible = false
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 metadata/_tab_index = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Accessibility"]
