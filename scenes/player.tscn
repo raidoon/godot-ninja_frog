@@ -308,10 +308,9 @@ script = ExtResource("1_jhj6g")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nslec")
-animation = &"double_jump"
+animation = &"run"
 autoplay = "idle"
-frame = 4
-frame_progress = 0.698458
+frame_progress = 0.429483
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
