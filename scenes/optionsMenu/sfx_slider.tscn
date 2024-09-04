@@ -2,6 +2,7 @@
 
 [sub_resource type="SystemFont" id="SystemFont_1yct5"]
 font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
 
 [node name="sfx_slider" type="Control"]
 layout_mode = 3
@@ -12,6 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_right = 844.0
 offset_bottom = 64.0
 alignment = 1

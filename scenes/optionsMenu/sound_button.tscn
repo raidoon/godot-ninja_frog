@@ -4,6 +4,7 @@
 
 [sub_resource type="SystemFont" id="SystemFont_36wr3"]
 font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
 
 [node name="sound_control_button" type="Control"]
 layout_mode = 3
@@ -12,7 +13,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_sgyrd")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -38,3 +38,7 @@ custom_minimum_size = Vector2(164, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+script = ExtResource("1_sgyrd")
+
+[connection signal="mouse_exited" from="HBoxContainer/HSlider" to="." method="_on_h_slider_mouse_exited"]
+[connection signal="value_changed" from="HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
