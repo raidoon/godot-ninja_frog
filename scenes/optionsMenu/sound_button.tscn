@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4eeoam8g1nge"]
+[gd_scene load_steps=3 format=3 uid="uid://c4eeoam8g1nge"]
+
+[ext_resource type="Script" path="res://scenes/optionsMenu/main_volume_slider.gd" id="1_r4b02"]
 
 [sub_resource type="SystemFont" id="SystemFont_36wr3"]
 font_names = PackedStringArray("Impact")
@@ -31,11 +33,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 200
 
-[node name="HSlider" type="HSlider" parent="HBoxContainer"]
+[node name="master_volume" type="HSlider" parent="HBoxContainer"]
 custom_minimum_size = Vector2(164, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_r4b02")
+bus_name = "Master"
 
-[connection signal="mouse_exited" from="HBoxContainer/HSlider" to="." method="_on_h_slider_mouse_exited"]
-[connection signal="value_changed" from="HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="mouse_exited" from="HBoxContainer/master_volume" to="." method="_on_h_slider_mouse_exited"]
+[connection signal="value_changed" from="HBoxContainer/master_volume" to="." method="_on_h_slider_value_changed"]
