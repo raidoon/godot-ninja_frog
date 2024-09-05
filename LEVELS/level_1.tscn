@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://daplqh8flmap5"]
+[gd_scene load_steps=7 format=4 uid="uid://daplqh8flmap5"]
 
 [ext_resource type="Texture2D" uid="uid://dhgg7qk0yidgy" path="res://textures/Blue.png" id="1_7cs7r"]
 [ext_resource type="Texture2D" uid="uid://dk6r7ewf8a85a" path="res://textures/Terrain (16x16).png" id="2_ptnxn"]
 [ext_resource type="PackedScene" uid="uid://b1gcirtotf2m3" path="res://scenes/player.tscn" id="3_bf85w"]
-[ext_resource type="AudioStream" uid="uid://dldoy33md8ofx" path="res://audio/SFX/cartoon_jump_pixabay.mp3" id="4_aadrf"]
 [ext_resource type="AudioStream" uid="uid://b5a4wnquvxrhu" path="res://audio/SFX/swoosh1.mp3" id="5_2r1dg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f1aj7"]
@@ -192,12 +191,6 @@ tile_set = SubResource("TileSet_ge6oj")
 [node name="player" parent="." instance=ExtResource("3_bf85w")]
 position = Vector2(215, 542)
 scale = Vector2(2, 2)
-
-[node name="1stjump_sfx" type="AudioStreamPlayer2D" parent="player"]
-position = Vector2(-107.5, -271)
-scale = Vector2(0.5, 0.5)
-stream = ExtResource("4_aadrf")
-bus = &"sfx"
 
 [node name="double_jump_sfx" type="AudioStreamPlayer2D" parent="player"]
 stream = ExtResource("5_2r1dg")

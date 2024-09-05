@@ -1,9 +1,6 @@
 extends CharacterBody2D
 
-#adding in jump sfx
-@onready var _1st_jump_sfx: AudioStreamPlayer2D = $"1stjump_sfx"
 @onready var double_jump_sfx: AudioStreamPlayer2D = $double_jump_sfx
-
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -41,13 +38,9 @@ func _physics_process(delta: float) -> void:
 	elif velocity.y > 0.0: #when player is moving down the "falling" animation should play
 		anim.play("falling")
 	
-	#adding in jumping sfx when 1st jump
-	if Input.is_action_just_pressed("jump") and jumpcount < 1:
-		_1st_jump_sfx.play()
-	
 	# Handle jumping and double jumping
 	if Input.is_action_just_pressed("jump") and jumpcount < max_jumps:
-		double_jump_sfx.play()
+		double_jump_sfx.play()	#adding in sound effect when jumping
 		velocity.y = JUMP_VELOCITY
 		jumpcount += 1
 
