@@ -1,5 +1,7 @@
 2D platformer game based on TONS of Youtube videos and a lot of reading about Godot.
 
+Check out my progress on: https://raidoon.github.io/godot-ninja_frog/
+
 This is the first game ever that I tried to make in Godot!
 
 Engine version I worked with: 4.3 
